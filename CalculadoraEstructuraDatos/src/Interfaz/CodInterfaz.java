@@ -19,6 +19,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import calculadora.ArrayStack;
 import calculadora.Calculos;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -62,6 +64,8 @@ public class CodInterfaz extends JFrame {
         super("CALCULADORA!");
 
         setLayout(null);
+        
+         setIconImage(new ImageIcon(getClass().getResource("../Imagenes/cal.png")).getImage());
 
         btnSumar = new JButton("+");
         btnRestar = new JButton("-");
@@ -224,6 +228,9 @@ public class CodInterfaz extends JFrame {
         
         AccionBotonSumar obSumar = new AccionBotonSumar();
         btnSumar.addActionListener(obSumar);
+        
+        AccionBotonPunto obPunto = new AccionBotonPunto();
+        btnPunto.addActionListener(obPunto);
 
     }
 
@@ -330,16 +337,25 @@ public class CodInterfaz extends JFrame {
 
     }
 
-    private class AccionBotonResultado implements ActionListener {
-
+  private class AccionBotonResultado implements ActionListener {
+        
         public void actionPerformed(ActionEvent e) {
             pilaCadena.clearAll();
             String cadena = txtCampoTexto.getText();
-            ArrayStack<Character> a = ob.DatosEntrada(cadena);
-            char[] b = ob.cadena(a);
-            double resultado = ob.definirPrioridad(b);
-            txtResultado.setText(String.valueOf(resultado));
-                    
+            try {
+                
+                if (cadena.equals("")) {
+                    JOptionPane.showMessageDialog(btnPunto, "Debe Ingresar Numeros", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    ArrayStack<Character> a = ob.DatosEntrada(cadena);
+                    char[] b = ob.cadena(a);
+                    double resultado = ob.definirPrioridad(b);
+                    txtResultado.setText(String.valueOf(resultado));
+                }
+            } catch (NumberFormatException i) {
+                JOptionPane.showMessageDialog(btnPunto, "Debe Ingresar Numeros para Realizar Operaciones", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            
         }
     }
 
