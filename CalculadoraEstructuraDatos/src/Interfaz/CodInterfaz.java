@@ -335,15 +335,15 @@ public class CodInterfaz extends JFrame {
         public void actionPerformed(ActionEvent e) {
             pilaCadena.clearAll();
             String cadena = txtCampoTexto.getText();
-            double resultado = ob.definirPrioridad(cadena);
+            ArrayStack<Character> a = ob.DatosEntrada(cadena);
+            char[] b = ob.cadena(a);
+            double resultado = ob.definirPrioridad(b);
             txtResultado.setText(String.valueOf(resultado));
                     
         }
     }
 
 
-
-    
     private class AccionBotonMultiplicar implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
@@ -374,6 +374,15 @@ public class CodInterfaz extends JFrame {
         }
 
     }
+    
+    private class AccionBotonPunto implements ActionListener {
+
+        public void actionPerformed(ActionEvent e) {
+            txtCampoTexto.setText(txtCampoTexto.getText() + ".");
+        }
+
+    }
+    
     
     
 }

@@ -9,12 +9,37 @@ public class Calculos {
     private double num1;
     private double num2;
     private double resultadoOperacion;
+    
+    
+    public ArrayStack<Character> DatosEntrada(String Cadena){
+        ArrayStack<Character> Pila1 = new ArrayStack<>();
+        Pila1.clearAll();
+        char[] v = Cadena.toCharArray();
+        ArrayStack<Character> Pila2 = new ArrayStack<>();
+        for (int i = 0; i < v.length; i++) {
+            Pila1.pusk(v[i]);
+        }
+        for (int i = 0; i < v.length; i++) {
+            Pila2.pusk(Pila1.pop());
+        }
+                 
+        return Pila2;
+    }
+    
+    public char[] cadena(ArrayStack<Character> pila){
+        char[] v = new char[pila.tamañoPila()];
+        for (int i = 0; i < v.length; i++) {
+            v[i]=pila.pop();            
+        }
+        
+        return v;
+    }
    
     
     //separa numeros de operadores y los añade a un ArrayList
-    public ArrayList<String> definirVector(String cadena) {
+    public ArrayList<String> definirVector(/*String cadena*/ char[] v) {
         String num = "";
-        char[] v = cadena.toCharArray();
+        //char[] v = cadena.toCharArray();
         boolean a = false;
         ArrayList<String> vectorAEnviar = new ArrayList<>();
         int i = 0;
@@ -39,12 +64,9 @@ public class Calculos {
         vectorCadena = vectorAEnviar;
         return vectorCadena;
     }
-    
-
-   
    
 
-public double definirPrioridad(String cadena) {
+public double definirPrioridad(/*String cadena*/ char[] cadena) {
         vectorCadena = definirVector(cadena);
 
         while (vectorCadena.size() != 1) {
