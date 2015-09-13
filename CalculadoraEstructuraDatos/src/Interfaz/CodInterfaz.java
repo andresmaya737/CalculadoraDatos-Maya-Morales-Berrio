@@ -386,7 +386,7 @@ public class CodInterfaz extends JFrame {
     private class AccionBotonRestar implements ActionListener {
 
         public void actionPerformed(ActionEvent e) {
-            txtCampoTexto.setText(txtCampoTexto.getText() + "-");
+            txtCampoTexto.setText(txtCampoTexto.getText() + "_");
         }
 
     }
