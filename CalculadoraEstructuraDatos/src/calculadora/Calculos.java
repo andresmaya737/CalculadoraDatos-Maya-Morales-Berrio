@@ -63,7 +63,7 @@ public class Calculos {
         return vectorCadena;
     }
 
-    public double definirPrioridad(/*String cadena*/char[] cadena) {
+    public double definirPrioridad(/*String cadena*/char[] cadena) throws Exception{
         vectorCadena = definirVector(cadena);
 
         if (vectorCadena.size() != 1) {

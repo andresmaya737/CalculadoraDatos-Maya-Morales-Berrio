@@ -19,6 +19,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import calculadora.ArrayStack;
 import calculadora.Calculos;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -354,6 +356,8 @@ public class CodInterfaz extends JFrame {
                 }
             } catch (NumberFormatException i) {
                 JOptionPane.showMessageDialog(btnPunto, "Debe Ingresar Numeros para Realizar Operaciones", "Error", JOptionPane.ERROR_MESSAGE);
+            } catch (Exception ex) {
+               JOptionPane.showMessageDialog(btnPunto, "Debe Ingresar Numeros para Realizar Operaciones", "Error", JOptionPane.INFORMATION_MESSAGE);
             }
             
         }
