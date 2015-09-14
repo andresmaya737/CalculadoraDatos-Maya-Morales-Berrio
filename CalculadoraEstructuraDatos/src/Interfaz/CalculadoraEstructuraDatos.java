@@ -18,9 +18,9 @@ public class CalculadoraEstructuraDatos {
     public static void main(String[] args) {
         CodInterfaz cal = new CodInterfaz();
         cal.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-        cal.setLocationRelativeTo(null);
         cal.setSize( 393, 380); 
         cal.setResizable(false);
+        cal.setLocationRelativeTo(null);
         cal.setVisible( true ); 
         
     }

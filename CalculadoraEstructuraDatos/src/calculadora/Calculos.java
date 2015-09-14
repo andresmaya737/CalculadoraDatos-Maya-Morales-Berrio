@@ -9,6 +9,7 @@ public class Calculos {
     private double num1;
     private double num2;
     private double resultadoOperacion;
+    
 
     public ArrayStack<Character> DatosEntrada(String Cadena) {
         ArrayStack<Character> Pila1 = new ArrayStack<>();
